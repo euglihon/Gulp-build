@@ -35,7 +35,8 @@ gulp.task('scripts', function() {
 	return gulp.src('app/js/**/*.js')
 		.pipe(uglify()) // Сжимаем JS файл
 		.pipe(rename({suffix: ".min"}))
-		.pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
+		.pipe(gulp.dest('app/js')),  // Выгружаем в папку app/js
+    .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('code', function() {
